@@ -1,0 +1,43 @@
+.phone-navigation-overlay {
+  display: flex;
+  flex-direction: column;
+  padding: 2px 1px;
+  position: absolute;
+  height: 190vh;
+  width: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+}
+
+.phone-navigation {
+  width: 50%;
+  height: 100%;
+  background-color: #fff;
+  left: 0;
+  transition: 2s;
+}
+.phone-navigation svg{
+  cursor: pointer;
+}
+.phone-navigation svg:hover{
+fill: blue;
+}
+.phone-navigation li {
+  list-style: none;
+  padding: 3px 0px;
+  cursor: pointer;
+}
+.phone-navigation h3 {
+  font-size: 19px;
+  font-weight: 500;
+}
+
+
+@media only screen and (max-width: 700px) {
+  .phone-navigation {
+    width: 70%;
+  }
+}

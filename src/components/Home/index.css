@@ -1,0 +1,27 @@
+.home-navigation-main {
+  width: 100%;
+  padding-bottom: 40px;
+  text-align: center;
+}
+.home-navigation-main button{
+    margin-top: 20px;
+}
+.home-navigation-main-image {
+  width: 100%;
+  height: fit-content;
+  cursor: pointer;
+}
+.home-navigation-main-image img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+.home-navigation-split {
+  display: grid;
+  grid-template: auto auto / repeat(2, 1fr);
+}
+@media only screen and (max-width: 1000px) {
+  .home-navigation-main {
+    padding-top: 50px;
+  }
+}
