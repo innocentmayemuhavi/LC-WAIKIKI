@@ -15,7 +15,7 @@ const MensTshirts = () => {
     <main className="fade">
       <Header />
       <div className="page-header">
-        <img src="../../../images/mens_tshirts.jpg" />
+        <img src="../../../images/mens_tshirts.jpg" alt='Loading Image...'/>
       </div>
      
       <div className="page-text">

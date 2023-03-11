@@ -14,7 +14,7 @@ const HomePage = () => {
      
       <div className="home-navigation-main">
         <div className="home-navigation-main-image">
-          <img src="../../../../images/mens_outerwear.jpg"></img>
+          <img src="../../../../images/mens_outerwear.jpg" alt='Loading Image...'></img>
         </div>
         <p>Men's Outwear</p>
         <Link to={"/mensoutwear"}>

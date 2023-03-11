@@ -16,7 +16,7 @@ const LaptopBackPacks = () => {
     <main className="fade">
       <Header />
       <div className="page-header">
-        <img src="../../../images/backpacks.jpeg" />
+        <img src="../../../images/backpacks.jpeg" alt='Loading Image...' />
       </div>
      
       <div className="page-text">
