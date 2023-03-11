@@ -1,8 +1,9 @@
 import "./index.css";
 import { useContext } from "react";
 import { AuthContext } from "../Context";
+import { Link } from "react-router-dom";
 const PhoneNavigation = () => {
-  const {setShowPhoneNav} = useContext(AuthContext);
+  const { setShowPhoneNav } = useContext(AuthContext);
   return (
     <section className="phone-navigation-overlay">
       <section className="phone-navigation">
@@ -13,7 +14,7 @@ const PhoneNavigation = () => {
               viewBox="0 0 24 24"
               width="24"
               height="24"
-              onClick={()=>setShowPhoneNav(false)}
+              onClick={() => setShowPhoneNav(false)}
             >
               <path
                 fill-rule="evenodd"
@@ -23,15 +24,17 @@ const PhoneNavigation = () => {
           </div>
           <h3>SHOP</h3>
           <hr />
-          <li>Men's Outwear</li>
+          <Link to={"/mensoutwear"}>
+            <li onClick={() => setShowPhoneNav(false)}>Men's Outwear</li>
+          </Link>
           <hr />
-          <li>Ladies' Outwear</li>
+          <li onClick={() => setShowPhoneNav(false)}>Ladies' Outwear</li>
           <hr />
-          <li>Men's T-Shirts</li>
+          <li onClick={() => setShowPhoneNav(false)}>Men's T-Shirts</li>
           <hr />
-          <li>Ladies' T-Shirts</li>
+          <li onClick={() => setShowPhoneNav(false)}>Ladies' T-Shirts</li>
           <hr />
-          <li>Laptop Backpacks</li>
+          <li onClick={() => setShowPhoneNav(false)}>Laptop Backpacks</li>
           <hr />
         </ul>
       </section>

@@ -1,7 +1,16 @@
 import "./index.css";
 import Header from "../Header/index.jsx";
 import Footer from '../Footer'
+import { useContext } from "react";
+import { AuthContext } from "../Context";
+import ProductData from "../systemData/ProductData";
 const HomePage = () => {
+  const {Cart}=useContext(AuthContext)
+  const render=ProductData.map(data=><div key={data.name}>
+    <img src={data.image}/>
+    <p>{data.name}</p>
+
+  </div>)
   return (
     <main className="fade">
       <Header />
@@ -19,7 +28,7 @@ const HomePage = () => {
           <img src="../../../../images/ladies_outerwear.jpg"></img>
         </div>
         <p>Men's Outwear</p>
-        <button>
+        <button >
             SHOP NOW
         </button>
       </div>
@@ -37,13 +46,17 @@ const HomePage = () => {
         <div className="home-navigation-main-image">
           <img src="../../../../images/ladies_tshirts.jpg"></img>
         </div>
-        <p>Men's Outwear</p>
-        <button>
+        <p>Ladies' Outwear</p>
+        <button onClick={()=>{
+
+          console.log(Cart)
+        }}>
             SHOP NOW
         </button>
       </div>
 
       </div>
+      {render}
       <Footer/>
       
     </main>

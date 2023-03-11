@@ -2,8 +2,9 @@ import "./index.css";
 import { useState, useEffect, useContext } from "react";
 import { PhoneNavigation } from "../Navigation";
 import { AuthContext } from "../Context";
+import { Link } from "react-router-dom";
 const Header = () => {
-  const { showPhoneNav, setShowPhoneNav } = useContext(AuthContext);
+  const { showPhoneNav, setShowPhoneNav,Cart } = useContext(AuthContext);
   const [width, setwidth] = useState(window.innerWidth);
   useEffect(() => {
     function watchwidth() {
@@ -38,10 +39,10 @@ const Header = () => {
         <div></div>
       )}
       <div className="shop-title">
-        <h3>SHOP</h3>
+        <Link to={'/'}><h3>SHOP</h3></Link>
       </div>
       <div className="cart-icon">
-        <div className="cart-items-count"><p>5</p></div>
+       {Cart.clothes.length>0&&<div className="cart-items-count"><p>{Cart.clothes.length}</p></div>} 
         <img src="../../../../images/icons/shopping-cart.png"></img>
       </div>
      

@@ -1,0 +1,21 @@
+.product-card {
+  text-align: center;
+  width: fit-content;
+}
+.product-card h4 {
+  font-size: 15px;
+  font-weight: 500;
+}
+.product-card p {
+  font-size: 14px;
+  color: gray;
+}
+.product-card-image {
+  width: 100%;
+  height: fit-content;
+}
+.product-card-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}

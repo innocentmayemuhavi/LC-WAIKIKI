@@ -1,10 +1,11 @@
+
 .home-navigation-main {
   width: 100%;
   padding-bottom: 40px;
   text-align: center;
 }
-.home-navigation-main button{
-    margin-top: 20px;
+.home-navigation-main button {
+  margin-top: 20px;
 }
 .home-navigation-main-image {
   width: 100%;
@@ -18,7 +19,7 @@
 }
 .home-navigation-split {
   display: grid;
-  grid-template: auto auto / repeat(2, 1fr);
+ grid-template:auto auto / repeat(2,1fr);
 }
 @media only screen and (max-width: 1000px) {
   .home-navigation-main {

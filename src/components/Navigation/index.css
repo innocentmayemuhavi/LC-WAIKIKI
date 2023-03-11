@@ -29,10 +29,19 @@ fill: blue;
   list-style: none;
   padding: 3px 0px;
   cursor: pointer;
+  transition: 0.8s;
+  background-position: center;
+
 }
+
 .phone-navigation h3 {
   font-size: 19px;
   font-weight: 500;
+}
+.phone-navigation a,.phone-navigation a:hover{
+  text-decoration: none;
+  color: black;
+  font-weight: 400;
 }
 
 
