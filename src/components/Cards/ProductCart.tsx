@@ -6,7 +6,7 @@ const ProductCard = (props: any) => {
       <div className="product-image">
         <img src={props.image} />
       </div>
-      <h4>{props.name}</h4>
+      <h4>{props.name.split("+").join(" ")}</h4>
       <p>KES {Math.round(props.price * 128.33).toLocaleString("en-us")}</p>
     </section>
   );
