@@ -28,13 +28,13 @@ const PhoneNavigation = () => {
             <li onClick={() => setShowPhoneNav(false)}>Men's Outwear</li>
           </Link>
           <hr />
-          <li onClick={() => setShowPhoneNav(false)}>Ladies' Outwear</li>
+         <Link to={'/ladiesoutwear'}> <li onClick={() => setShowPhoneNav(false)}>Ladies' Outwear</li></Link>
           <hr />
-          <li onClick={() => setShowPhoneNav(false)}>Men's T-Shirts</li>
+          <Link to={'/menstshirts'}><li onClick={() => setShowPhoneNav(false)}>Men's T-Shirts</li></Link>
           <hr />
-          <li onClick={() => setShowPhoneNav(false)}>Ladies' T-Shirts</li>
+          <Link to={'/ladiestshirts'}><li onClick={() => setShowPhoneNav(false)}>Ladies' T-Shirts</li></Link>
           <hr />
-          <li onClick={() => setShowPhoneNav(false)}>Laptop Backpacks</li>
+         <Link to={'/laptopbackpacks'}> <li onClick={() => setShowPhoneNav(false)}>Laptop Backpacks</li></Link>
           <hr />
         </ul>
       </section>

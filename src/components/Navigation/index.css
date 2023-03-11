@@ -19,11 +19,11 @@
   left: 0;
   transition: 2s;
 }
-.phone-navigation svg{
+.phone-navigation svg {
   cursor: pointer;
 }
-.phone-navigation svg:hover{
-fill: blue;
+.phone-navigation svg:hover {
+  fill: blue;
 }
 .phone-navigation li {
   list-style: none;
@@ -31,19 +31,46 @@ fill: blue;
   cursor: pointer;
   transition: 0.8s;
   background-position: center;
-
 }
 
 .phone-navigation h3 {
   font-size: 19px;
   font-weight: 500;
 }
-.phone-navigation a,.phone-navigation a:hover{
+.phone-navigation a,
+.phone-navigation a:hover {
   text-decoration: none;
   color: black;
   font-weight: 400;
 }
-
+nav {
+  text-align: center;
+  width: 100%;
+  background-color: #fff;
+  margin-bottom: 10px;
+}
+nav button {
+  background-color: transparent;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  cursor: pointer;
+  outline: none;
+  padding: 10px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  min-width: 125px;
+  text-align: center;
+  text-transform: capitalize;
+  color: #222;
+  border-bottom: 2px solid #fff;
+}
+nav button:hover {
+  background-color: #efefef;
+  color: black;
+  border-bottom: 2px solid black;
+}
 
 @media only screen and (max-width: 700px) {
   .phone-navigation {

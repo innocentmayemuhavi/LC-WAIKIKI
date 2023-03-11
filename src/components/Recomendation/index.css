@@ -1,0 +1,36 @@
+.recommendation {
+  text-align: center;
+  padding-top: 40px;
+}
+.recommendation button {
+  font-size: 13px;
+  cursor: pointer;
+  background-color: #e0e0e0;
+  color: #000000de;
+  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 8px 15px;
+  border-radius: 20px;
+  align-items: center;
+  -webkit-user-select: none;
+  user-select: none;
+  font-weight: 400;
+  border: none;
+  text-transform: capitalize;
+  transition: 0.8s;
+}
+.recommendation h3{
+    font-size: 16px;
+    font-weight: 500;
+
+}
+.recommendation p{
+    font-size: 13px;
+    font-weight: 100;
+    text-transform: capitalize;
+}
+@media only screen  and (max-width:1000px){
+    .recommendation{
+        padding-top: 50px;
+    }
+    
+}

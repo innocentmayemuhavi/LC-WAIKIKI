@@ -1,4 +1,4 @@
-header {
+.header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -11,6 +11,12 @@ header {
   left: 0;
   right: 0;
 }
+
+header{
+  display: flex;
+  flex-direction: column;
+}
+
 .menu-icon {
   height: 25px;
 }
@@ -54,7 +60,8 @@ header {
   margin: 0;
   padding: 0;
 }
-.shop-title a,.shop-title a:hover{
+.shop-title a,
+.shop-title a:hover {
   color: black;
   text-decoration: none;
 }

@@ -6,7 +6,7 @@ export default [
     price: 41.6,
     description:
       "With an updated fit and figure-flattering details, this full-zip combines ultra soft cotton with a dash of spandex to retain its shape all day long.&amp;nbsp;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Features:&lt;/div&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;96% cotton, 4% spandex.&lt;/li&gt;&lt;li&gt;Gently contoured silhouette &amp;amp; longer length design for a style that moves with you.&lt;/li&gt;&lt;li&gt;Self-fabric hood.&lt;/li&gt;&lt;li&gt;Dyed-to-match zipper.&amp;nbsp;&lt;/li&gt;&lt;li&gt;Front slash pockets.&lt;/li&gt;&lt;li&gt;Open cuffs &amp;amp; hem.&lt;/li&gt;&lt;li&gt;Available in Mosaic Blue with the white Google logo embroidered at left chest.&amp;nbsp;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;",
-    image: "../../../images/products/products/10-24102B.jpg",
+    image: "../../../images/products/10-24102B.jpg",
     largeImage: "../../../images/products/10-24102A.jpg",
   },
   {

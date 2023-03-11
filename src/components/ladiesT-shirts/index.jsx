@@ -3,9 +3,9 @@ import Header from "../Header";
 import "./index.css";
 import ProductData from "../systemData/ProductData";
 import { ProductCard } from "../Cards/ProductCart";
-const MensOutwear = () => {
+const LadiesTshirts = () => {
   const filtered = ProductData.filter(
-    (data) => data.category === "men-outerwear"
+    (data) => data.category === "ladies-tshirts"
   );
 
   const render = filtered.map((data) => (
@@ -15,7 +15,7 @@ const MensOutwear = () => {
     <main className="fade">
       <Header />
       <div className="page-header">
-        <img src="../../../images/mens_outerwear.jpg" />
+        <img src="../../../images/ladies_tshirts.jpg" />
       </div>
      
       <div className="page-text">
@@ -29,4 +29,4 @@ const MensOutwear = () => {
   );
 };
 
-export default MensOutwear;
+export default LadiesTshirts;

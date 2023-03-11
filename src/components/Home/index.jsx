@@ -4,12 +4,14 @@ import Footer from "../Footer";
 import { useContext } from "react";
 import { AuthContext } from "../Context";
 import { Link } from "react-router-dom";
+import { DeskTopNav } from "../Navigation/DeskTopNavigation";
 
 const HomePage = () => {
   const { Cart } = useContext(AuthContext);
   return (
     <main className="fade">
       <Header />
+     
       <div className="home-navigation-main">
         <div className="home-navigation-main-image">
           <img src="../../../../images/mens_outerwear.jpg"></img>
@@ -19,6 +21,7 @@ const HomePage = () => {
           <button>SHOP NOW</button>
         </Link>
       </div>
+      
       <div className="home-navigation-main">
         <div className="home-navigation-main-image">
           <img src="../../../../images/ladies_outerwear.jpg"></img>
