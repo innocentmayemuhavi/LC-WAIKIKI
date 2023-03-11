@@ -6,11 +6,6 @@ import { AuthContext } from "../Context";
 import ProductData from "../systemData/ProductData";
 const HomePage = () => {
   const {Cart}=useContext(AuthContext)
-  const render=ProductData.map(data=><div key={data.name}>
-    <img src={data.image}/>
-    <p>{data.name}</p>
-
-  </div>)
   return (
     <main className="fade">
       <Header />
@@ -56,7 +51,7 @@ const HomePage = () => {
       </div>
 
       </div>
-      {render}
+   
       <Footer/>
       
     </main>
