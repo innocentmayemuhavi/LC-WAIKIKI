@@ -37,4 +37,7 @@
     .products-body{
         padding-top: 100px;
     }
+    .products-body{
+        grid-template: auto auto / repeat(2,1fr);
+    }
 }
