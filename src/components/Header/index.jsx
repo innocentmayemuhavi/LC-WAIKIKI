@@ -52,7 +52,7 @@ const Header = () => {
               <p>{Cart.clothes.length}</p>
             </div>
           )}
-          <img src="../../../../images/icons/shopping-cart.png"></img>
+         <Link to={'/cart'}> <img src="../../../../images/icons/shopping-cart.png"></img></Link>
         </div>
       </section>
       {windowwidth > 1000 && <DeskTopNav />}

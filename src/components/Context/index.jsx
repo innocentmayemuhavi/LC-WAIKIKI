@@ -14,6 +14,8 @@ const AuthContext = createContext({
     clothes: [],
     total: 0,
   },
+  productPageData:{},
+  setProductPageData:()=>{},
   setCart: () => {},
 });
 
@@ -24,6 +26,7 @@ const AuthProvider = ({ children }) => {
   });
   const [showPhoneNav, setShowPhoneNav] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [productPageData,setProductPageData]=useState({})
   const [Cart, setCart] = useState({
     clothes: [],
     total: 0,
@@ -46,6 +49,26 @@ if(Cart.clothes){
   localStorage.setItem("Cart",JSON.stringify(Cart))
 }
   },[Cart])
+
+
+  
+  useEffect(() => {
+    const savedProduct =
+      localStorage.getItem("product") === "undefined"
+        ? {
+            clothes: [],
+            total: 0,
+          }
+        : JSON.parse(localStorage.getItem("product"));
+   setProductPageData(savedProduct)
+
+  }, []);
+
+  useEffect(()=>{
+if(productPageData){
+  localStorage.setItem("product",JSON.stringify(productPageData))
+}
+  },[productPageData])
   return (
     <AuthContext.Provider
       value={{
@@ -57,6 +80,8 @@ if(Cart.clothes){
         setShowPhoneNav,
         Cart,
         setCart,
+        productPageData,
+        setProductPageData
       }}
     >
       {children}

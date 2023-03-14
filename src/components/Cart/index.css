@@ -1,0 +1,19 @@
+.cart-header{
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
+
+}
+.cart-header h3{
+    font-weight: 400;
+}
+.cart-header p{
+    font-weight: 100;
+    margin: 0;
+    line-height: 1;
+}
+@media only screen  and (max-width:1000px){
+    .cart-header{
+        padding-top: 60px;
+    }
+}
