@@ -39,6 +39,9 @@
   cursor: pointer;
   gap: 20px;
 }
+.prod-input select{
+    background-color: transparent;
+}
 .product-page-data hr {
   color: #ccc;
 }
