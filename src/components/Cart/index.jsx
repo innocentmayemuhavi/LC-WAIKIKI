@@ -8,7 +8,7 @@ import "./index.css";
 const CartPage = () => {
   const { Cart } = useContext(AuthContext);
 
-  const render = Cart.clothes.map((data) => <CartCard key={data.title} {...data}/>);
+  const render = Cart.clothes.map((data) => <CartCard key={data.title+data.size} {...data}/>);
 
   return (
     <main className="fade">

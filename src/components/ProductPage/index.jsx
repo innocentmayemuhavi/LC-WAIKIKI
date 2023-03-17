@@ -4,8 +4,15 @@ import Header from "../Header";
 import { Notification } from "../Notification";
 import "./index.css";
 const ProductPage = () => {
-  const { productPageData, setCart, Cart, setProductPageData ,setNotificationData,setShowNotification,shownotification} =
-    useContext(AuthContext);
+  const {
+    productPageData,
+    setCart,
+    Cart,
+    setProductPageData,
+    setNotificationData,
+    setShowNotification,
+    shownotification,
+  } = useContext(AuthContext);
   const [data, setdata] = useState({
     size: "S",
     Quantity: 1,
@@ -34,23 +41,42 @@ const ProductPage = () => {
   }, [data]);
 
   const AddToCart = (item) => {
-    const newCart = Cart.clothes;
-    newCart.push(productPageData);
+    const verifyItem = Cart.clothes.find(
+      (data1) =>
+        data1.title === productPageData.title &&
+        data1.size === productPageData.size
+    );
+    if (verifyItem) {
+      console.log("here");
+      setNotificationData({
+        text1: "The Product ",
+        text2: productPageData.title,
+        text3: productPageData.size,
+        text4: "Already Exist",
+      });
+      setShowNotification(true);
+    } else {
+      console.log("not here");
+      const newCart = Cart.clothes;
+      newCart.push(productPageData);
 
-    setCart((prev) => {
-      return {
-        ...prev,
-        clothes: newCart,
-        total: newCart.reduce((prev, curr) => {
-          return prev + curr.price * curr.Quantity;
-        }, 0),
-      };
-    });
-    setNotificationData({
-      text1:productPageData.title,
-      text2:productPageData.size
-    })
-    setShowNotification(true)
+      setCart((prev) => {
+        return {
+          ...prev,
+          clothes: newCart,
+          total: newCart.reduce((prev, curr) => {
+            return prev + curr.price * curr.Quantity;
+          }, 0),
+        };
+      });
+      setNotificationData({
+        text1: "You have added ",
+        text2: productPageData.title,
+        text3: productPageData.size,
+        text4: "to Cart",
+      });
+      setShowNotification(true);
+    }
   };
   return (
     <main className="fade">
@@ -100,8 +126,14 @@ const ProductPage = () => {
           </div>
         </div>
       </section>
-      <button className="add-to-cart" onClick={() => AddToCart(productPageData)}> Add To Cart</button>
-      {shownotification&&<Notification/>}
+      <button
+        className="add-to-cart"
+        onClick={() => AddToCart(productPageData)}
+      >
+        {" "}
+        Add To Cart
+      </button>
+      {shownotification && <Notification />}
     </main>
   );
 };
