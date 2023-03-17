@@ -1,0 +1,31 @@
+{
+  "name": "LC WAIKIKI",
+  "short_name": "LC WAIKIKI",
+  "theme_color": "#000000",
+  "background_color": "#fafafa",
+  "display": "standalone",
+  "scope": "./",
+  "start_url": "./",
+  "icons": [
+    {
+      "src": "public/images/download.jpeg",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "public/images/download.jpeg",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/icons/shop-icon-384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "public/images/download.jpeg",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

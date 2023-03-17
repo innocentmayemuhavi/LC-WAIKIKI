@@ -14,9 +14,13 @@ const AuthContext = createContext({
     clothes: [],
     total: 0,
   },
-  productPageData:{},
-  setProductPageData:()=>{},
+  productPageData: {},
+  setProductPageData: () => {},
   setCart: () => {},
+  notificationData: {},
+  setNotificationData: () => {},
+  shownotification: false,
+  setShowNotification: () => {},
 });
 
 const AuthProvider = ({ children }) => {
@@ -26,11 +30,13 @@ const AuthProvider = ({ children }) => {
   });
   const [showPhoneNav, setShowPhoneNav] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [productPageData,setProductPageData]=useState({})
+  const [productPageData, setProductPageData] = useState({});
   const [Cart, setCart] = useState({
     clothes: [],
     total: 0,
   });
+  const [notificationData, setNotificationData] = useState({});
+  const [shownotification, setShowNotification] = useState(false);
 
   useEffect(() => {
     const savedCart =
@@ -40,18 +46,15 @@ const AuthProvider = ({ children }) => {
             total: 0,
           }
         : JSON.parse(localStorage.getItem("Cart"));
-   setCart(savedCart)
-
+    setCart(savedCart);
   }, []);
 
-  useEffect(()=>{
-if(Cart.clothes){
-  localStorage.setItem("Cart",JSON.stringify(Cart))
-}
-  },[Cart])
+  useEffect(() => {
+    if (Cart.clothes) {
+      localStorage.setItem("Cart", JSON.stringify(Cart));
+    }
+  }, [Cart]);
 
-
-  
   useEffect(() => {
     const savedProduct =
       localStorage.getItem("product") === "undefined"
@@ -60,15 +63,14 @@ if(Cart.clothes){
             total: 0,
           }
         : JSON.parse(localStorage.getItem("product"));
-   setProductPageData(savedProduct)
-
+    setProductPageData(savedProduct);
   }, []);
 
-  useEffect(()=>{
-if(productPageData){
-  localStorage.setItem("product",JSON.stringify(productPageData))
-}
-  },[productPageData])
+  useEffect(() => {
+    if (productPageData) {
+      localStorage.setItem("product", JSON.stringify(productPageData));
+    }
+  }, [productPageData]);
   return (
     <AuthContext.Provider
       value={{
@@ -81,7 +83,11 @@ if(productPageData){
         Cart,
         setCart,
         productPageData,
-        setProductPageData
+        setProductPageData,
+        shownotification,
+        setNotificationData,
+        setShowNotification,
+        notificationData,
       }}
     >
       {children}

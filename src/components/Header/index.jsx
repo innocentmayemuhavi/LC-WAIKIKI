@@ -4,6 +4,7 @@ import { PhoneNavigation } from "../Navigation";
 import { AuthContext } from "../Context";
 import { Link } from "react-router-dom";
 import { DeskTopNav } from "../Navigation/DeskTopNavigation";
+
 const Header = () => {
   const { showPhoneNav, setShowPhoneNav, Cart } = useContext(AuthContext);
   const [width, setwidth] = useState(window.innerWidth);
@@ -24,6 +25,7 @@ const Header = () => {
   const windowwidth = window.innerWidth;
   return (
     <header>
+   
       <section
         style={{
           position: windowwidth > 1000 ? "static" : "fixed",
