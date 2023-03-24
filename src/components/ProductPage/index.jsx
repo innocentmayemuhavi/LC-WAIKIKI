@@ -12,6 +12,7 @@ const ProductPage = () => {
     setNotificationData,
     setShowNotification,
     shownotification,
+    notificationData,
   } = useContext(AuthContext);
   const [data, setdata] = useState({
     size: "S",
@@ -78,6 +79,8 @@ const ProductPage = () => {
       setShowNotification(true);
     }
   };
+
+ 
   return (
     <main className="fade">
       <Header />

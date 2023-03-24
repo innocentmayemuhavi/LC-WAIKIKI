@@ -58,10 +58,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const savedProduct =
       localStorage.getItem("product") === "undefined"
-        ? {
-            clothes: [],
-            total: 0,
-          }
+        ? {}
         : JSON.parse(localStorage.getItem("product"));
     setProductPageData(savedProduct);
   }, []);
@@ -71,6 +68,14 @@ const AuthProvider = ({ children }) => {
       localStorage.setItem("product", JSON.stringify(productPageData));
     }
   }, [productPageData]);
+  if (notificationData) {
+    useEffect(() => {
+      setInterval(() => setShowNotification(false), 5000);
+      return () => {
+        setShowNotification(false);
+      };
+    }, [Notification]);
+  }
   return (
     <AuthContext.Provider
       value={{

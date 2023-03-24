@@ -4,12 +4,8 @@ import { AuthContext } from "../Context";
 import "./index.css";
 const Notification = () => {
   const { setShowNotification, notificationData } = useContext(AuthContext);
-  useEffect(() => {
-    setInterval(() => setShowNotification(false), 5000);
-    return () => {
-      setShowNotification(false);
-    };
-  }, [notificationData]);
+ 
+ 
   return (
     <section className="notification">
       <div className="notification-header">
