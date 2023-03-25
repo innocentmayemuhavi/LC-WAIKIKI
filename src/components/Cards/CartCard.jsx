@@ -17,7 +17,7 @@ const CartCard = (props) => {
       };
     });
   };
-  const Add = (props, event) => {
+  const addProductQuantity = (props, event) => {
     setCart((prev) => {
       return {
         ...prev,
@@ -75,7 +75,7 @@ const CartCard = (props) => {
               <select
                 value={props.Quantity}
                 name="qty"
-                onChange={() => Add({...props}, event)}
+                onChange={() => addProductQuantity({...props}, event)}
               >
                 <option value={1}>1</option>
                 <option value={2}>2</option>
@@ -130,7 +130,7 @@ const CartCard = (props) => {
               <select
                 value={props.Quantity}
                 name="qty"
-                onChange={() => Add({...props}, event)}
+                onChange={() => addProductQuantity({...props}, event)}
               >
                 <option value={1}>1</option>
                 <option value={2}>2</option>
