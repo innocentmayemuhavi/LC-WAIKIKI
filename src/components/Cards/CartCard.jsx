@@ -6,6 +6,34 @@ import "./index.css";
 const CartCard = (props) => {
   const { Cart, setCart, setProductPageData } = useContext(AuthContext);
 
+  const updateData = () => {
+    setCart((prev) => {
+      return {
+        ...prev,
+        clothes: prev.clothes,
+        total: prev.clothes.reduce((prev, curr) => {
+          return prev + curr.price * curr.Quantity;
+        }, 0),
+      };
+    });
+  };
+  const Add = (props, event) => {
+    setCart((prev) => {
+      return {
+        ...prev,
+        clothes: prev.clothes.map((data) => {
+          return data.title === props.title&&data.size===props.size
+            ? { ...data, Quantity: event.target.value }
+            : data;
+        }),
+        total: prev.clothes.reduce((prev, curr) => {
+          return prev + curr.price * curr.Quantity;
+        }, 0),
+      };
+    });
+    updateData();
+    console.log(Cart);
+  };
   const removeFromCart = (data) => {
     console.log(data.title);
     const filtered = Cart.clothes.filter(
@@ -41,7 +69,22 @@ const CartCard = (props) => {
 
         <div className="cart-prod-details">
           <div className="product-data-1">
-            <p> Qty:{props.Quantity}</p>
+            <p>
+              {" "}
+              Qty:
+              <select
+                value={props.Quantity}
+                name="qty"
+                onChange={() => Add({...props}, event)}
+              >
+                <option value={1}>1</option>
+                <option value={2}>2</option>
+                <option value={3}>3</option>
+                <option value={4}>4</option>
+                <option value={5}>5</option>
+                <option value={6}>6</option>
+              </select>
+            </p>
             <p> Size:{props.size}</p>
             <p> KES {Math.round(props.price * 122.88).toLocaleString()}</p>
           </div>
@@ -50,7 +93,7 @@ const CartCard = (props) => {
             viewBox="0 0 24 24"
             width="16"
             height="16"
-            onClick={() => removeFromCart({ ...props })}
+            onClick={() => removeFromCart(props.title)}
           >
             <path d="M5.72 5.72a.75.75 0 0 1 1.06 0L12 10.94l5.22-5.22a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L13.06 12l5.22 5.22a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L12 13.06l-5.22 5.22a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L10.94 12 5.72 6.78a.75.75 0 0 1 0-1.06Z"></path>
           </svg>
@@ -81,7 +124,22 @@ const CartCard = (props) => {
           </div>
           <div className="cart-prod-2-data-2">
             <p></p>
-            <p> Qty:{props.Quantity}</p>
+            <p>
+              {" "}
+              Qty:
+              <select
+                value={props.Quantity}
+                name="qty"
+                onChange={() => Add({...props}, event)}
+              >
+                <option value={1}>1</option>
+                <option value={2}>2</option>
+                <option value={3}>3</option>
+                <option value={4}>4</option>
+                <option value={5}>5</option>
+                <option value={6}>6</option>
+              </select>
+            </p>
             <p> Size:{props.size}</p>
             <p> KES {Math.round(props.price * 122.88).toLocaleString()}</p>
           </div>

@@ -29,7 +29,7 @@ const CartPage = () => {
               <span>{Math.round(Cart.total * 122.88).toLocaleString()}</span>
             </h4>
           )}
-          {Cart.clothes.length > 0? (
+          {Cart.clothes.length > 0 ? (
             <button>Check Out</button>
           ) : (
             <Link to={"/"}>
