@@ -6,9 +6,9 @@ import Header from "../Header";
 import "./index.css";
 
 const CartPage = () => {
-  const { Cart } = useContext(AuthContext);
-
-  const render = Cart.clothes.map((data) => (
+  const { Cart,dataStore } = useContext(AuthContext);
+console.log(dataStore[0])
+  const render = dataStore[0].map((data) => (
     <CartCard key={data.title + data.size} {...data} />
   ));
 
@@ -17,19 +17,19 @@ const CartPage = () => {
       <Header />
       <section className="cart-header">
         <h3>Your Cart</h3>
-        <p>({Cart.clothes.length} items)</p>
+        <p>({dataStore[0].length} items)</p>
       </section>
       <section className="cart-body">{render}</section>
       <section className="cart-total ">
-        {Cart.clothes.length > 0 && <div></div>}
+        {dataStore[0].length > 0 && <div></div>}
         <div className="data-1">
-          {Cart.clothes.length > 0 && (
+          {dataStore[0].length > 0 && (
             <h4>
               Total: KES{" "}
-              <span>{Math.round(Cart.total * 122.88).toLocaleString()}</span>
+              <span>{Math.round(dataStore[1]* 122.88).toLocaleString()}</span>
             </h4>
           )}
-          {Cart.clothes.length > 0 ? (
+          {dataStore[0].length > 0 ? (
             <button>Check Out</button>
           ) : (
             <Link to={"/"}>

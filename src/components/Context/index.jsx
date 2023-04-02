@@ -1,4 +1,21 @@
 import { createContext, useEffect, useState } from "react";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+import {
+  getDatabase,
+  ref,
+  onValue,
+  update,
+} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+
+const appSettings = {
+  databaseUrl: "https://maye-a3160-default-rtdb.firebaseio.com/",
+  projectId: "maye-a3160",
+};
+
+const app = initializeApp(appSettings);
+const dB = getDatabase(app);
+
+const dataList = ref(dB, "data");
 
 const AuthContext = createContext({
   User: {
@@ -21,6 +38,8 @@ const AuthContext = createContext({
   setNotificationData: () => {},
   shownotification: false,
   setShowNotification: () => {},
+  dataStore: [[], []],
+  setDataStore: () => {},
 });
 
 const AuthProvider = ({ children }) => {
@@ -37,8 +56,15 @@ const AuthProvider = ({ children }) => {
   });
   const [notificationData, setNotificationData] = useState({});
   const [shownotification, setShowNotification] = useState(false);
+  const [dataStore, setDataStore] = useState([[], [0]]);
 
   useEffect(() => {
+    onValue(dataList, (snapshot) => {
+      const onlineData = Object.values(snapshot.val());
+      onlineData === "undefined"
+        ? update(dataList, [[], [0]])
+        : setDataStore(Object.values(snapshot.val()));
+    });
     const savedCart =
       localStorage.getItem("Cart") === "undefined"
         ? {
@@ -46,12 +72,44 @@ const AuthProvider = ({ children }) => {
             total: 0,
           }
         : JSON.parse(localStorage.getItem("Cart"));
+
     setCart(savedCart);
+
+    onValue(dataList, (snapshot) => {
+      const onlineData = Object.values(snapshot.val());
+      console.log(Object.keys(snapshot.val()));
+      onlineData &&
+        setCart((prev) => {
+          return {
+            ...prev,
+            clothes: onlineData[0],
+            total: onlineData[1],
+          };
+        });
+    });
   }, []);
 
   useEffect(() => {
     if (Cart.clothes) {
       localStorage.setItem("Cart", JSON.stringify(Cart));
+      if (dataStore === "undefined") {
+        setDataStore([[], [0]]);
+      } else {
+        update(dataList, Cart);
+      }
+      update(dataList, Cart);
+
+      onValue(dataList, (snapshot) => {
+        Cart.clothes.length === 0
+          ? setDataStore([[], [0]])
+          : setDataStore(Object.values(snapshot.val()));
+      });
+    } else {
+      setCart({
+        clothes: [],
+        total: 0,
+      });
+      setDataStore[([], [])];
     }
   }, [Cart]);
 
@@ -93,6 +151,8 @@ const AuthProvider = ({ children }) => {
         setNotificationData,
         setShowNotification,
         notificationData,
+        dataStore,
+        setDataStore,
       }}
     >
       {children}

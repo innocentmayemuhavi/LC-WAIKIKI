@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { DeskTopNav } from "../Navigation/DeskTopNavigation";
 
 const Header = () => {
-  const { showPhoneNav, setShowPhoneNav, Cart } = useContext(AuthContext);
+  const { showPhoneNav, setShowPhoneNav, Cart,dataStore } = useContext(AuthContext);
   const [width, setwidth] = useState(window.innerWidth);
   useEffect(() => {
     function watchwidth() {
@@ -49,9 +49,9 @@ const Header = () => {
           </Link>
         </div>
         <div className="cart-icon">
-          {Cart.clothes.length > 0 && (
+          {dataStore[0].length > 0 && (
             <div className="cart-items-count">
-              <p>{Cart.clothes.length}</p>
+              <p>{dataStore[0].length}</p>
             </div>
           )}
          <Link to={'/cart'}> <img src="../../../../images/icons/shopping-cart.png"></img></Link>

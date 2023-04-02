@@ -16,10 +16,10 @@ const RoutesComponent = () => {
       <Route path="/mensoutwear" element={<MensOutwear />} />
       <Route path="/ladiesoutwear" element={<LadiesOutwear />} />
       <Route path="/menstshirts" element={<MensTshirts />} />
-      <Route path="/ladiestshirts" element={<LadiesTshirts/>} />
-      <Route path="/laptopbackpacks" element={<LaptopBackPacks/>} />
-      <Route path="/cart" element={<CartPage/>} />
-      <Route path="/product" element={<ProductPage/>} />
+      <Route path="/ladiestshirts" element={<LadiesTshirts />} />
+      <Route path="/laptopbackpacks" element={<LaptopBackPacks />} />
+      <Route path="/cart" element={<CartPage />} />
+      <Route path="/product" element={<ProductPage />} />
     </Routes>
   );
 };
