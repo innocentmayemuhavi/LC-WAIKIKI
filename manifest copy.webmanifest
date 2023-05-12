@@ -1,6 +1,6 @@
 {
-  "name": "LC WAIKIKI",
-  "short_name": "LC WAIKIKI",
+  "name": "Angular Polymer Shop",
+  "short_name": "ngShop",
   "theme_color": "#000000",
   "background_color": "#fafafa",
   "display": "standalone",
@@ -8,22 +8,22 @@
   "start_url": "./",
   "icons": [
     {
-      "src": "public/images/download.jpeg",
+      "src": "assets/images/icons/shop-icon-128.png",
       "sizes": "128x128",
       "type": "image/png"
     },
     {
-      "src": "public/images/download.jpeg",
+      "src": "assets/images/icons/shop-icon-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "public/images/download.jpeg",
+      "src": "assets/images/icons/shop-icon-384.png",
       "sizes": "384x384",
       "type": "image/png"
     },
     {
-      "src": "public/images/download.jpeg",
+      "src": "assets/images/icons/shop-icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
     }

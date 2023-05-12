@@ -61,12 +61,12 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     onValue(dataList, (snapshot) => {
       const onlineData = Object.values(snapshot.val());
-      onlineData === "undefined"
+      onlineData === null
         ? update(dataList, [[], [0]])
         : setDataStore(Object.values(snapshot.val()));
     });
     const savedCart =
-      localStorage.getItem("Cart") === "undefined"
+      localStorage.getItem("Cart") === null
         ? {
             clothes: [],
             total: 0,
@@ -92,7 +92,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     if (Cart.clothes) {
       localStorage.setItem("Cart", JSON.stringify(Cart));
-      if (dataStore === "undefined") {
+      if (dataStore === null) {
         setDataStore([[], [0]]);
       } else {
         update(dataList, Cart);
@@ -109,13 +109,13 @@ const AuthProvider = ({ children }) => {
         clothes: [],
         total: 0,
       });
-      setDataStore[([], [])];
+      setDataStore([[], []]);
     }
   }, [Cart]);
 
   useEffect(() => {
     const savedProduct =
-      localStorage.getItem("product") === "undefined"
+      localStorage.getItem("product") === null
         ? {}
         : JSON.parse(localStorage.getItem("product"));
     setProductPageData(savedProduct);
