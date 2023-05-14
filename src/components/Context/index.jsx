@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext,  useEffect, useState } from "react";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 import {
   getDatabase,
@@ -11,12 +11,9 @@ const appSettings = {
   databaseUrl: "https://maye-a3160-default-rtdb.firebaseio.com/",
   projectId: "maye-a3160",
 };
-
 const app = initializeApp(appSettings);
 const dB = getDatabase(app);
-
 const dataList = ref(dB, "data");
-
 const AuthContext = createContext({
   User: {
     name: "",
@@ -41,7 +38,6 @@ const AuthContext = createContext({
   dataStore: [[], []],
   setDataStore: () => {},
 });
-
 const AuthProvider = ({ children }) => {
   const [User, setUser] = useState({
     name: "",
@@ -57,7 +53,7 @@ const AuthProvider = ({ children }) => {
   const [notificationData, setNotificationData] = useState({});
   const [shownotification, setShowNotification] = useState(false);
   const [dataStore, setDataStore] = useState([[], [0]]);
-
+/*
   useEffect(() => {
     onValue(dataList, (snapshot) => {
       const onlineData = Object.values(snapshot.val());
@@ -88,6 +84,9 @@ const AuthProvider = ({ children }) => {
         });
     });
   }, []);
+  useEffect(()=>{
+    console.log(Cart)
+  },[Cart])
 
   useEffect(() => {
     if (Cart.clothes) {
@@ -112,7 +111,7 @@ const AuthProvider = ({ children }) => {
       setDataStore([[], []]);
     }
   }, [Cart]);
-
+*/
   useEffect(() => {
     const savedProduct =
       localStorage.getItem("product") === null
@@ -159,5 +158,4 @@ const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
-
 export { AuthContext, AuthProvider };

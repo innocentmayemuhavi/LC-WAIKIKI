@@ -33,3 +33,6 @@ a:hover{
     opacity: 1;
   }
 }
+select{
+  cursor: pointer;
+}

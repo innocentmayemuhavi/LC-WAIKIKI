@@ -3,6 +3,8 @@ import { AuthContext } from "../Context";
 import Header from "../Header";
 import { Notification } from "../Notification";
 import "./index.css";
+import * as Appbtns from '../AppFunction'
+import { useDispatch, useSelector } from "react-redux";
 const ProductPage = () => {
   const {
     productPageData,
@@ -12,13 +14,14 @@ const ProductPage = () => {
     setNotificationData,
     setShowNotification,
     shownotification,
-    notificationData,
+  
   } = useContext(AuthContext);
   const [data, setdata] = useState({
     size: "S",
     Quantity: 1,
   });
-
+  const dataState=useSelector(state=>state.cart)
+const dispatch=useDispatch()
   console.log(data.Quantity * 1);
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -42,7 +45,7 @@ const ProductPage = () => {
   }, [data]);
 
   const AddToCart = (item) => {
-    const verifyItem = Cart.clothes.find(
+    const verifyItem = dataState.clothes.find(
       (data1) =>
         data1.title === productPageData.title &&
         data1.size === productPageData.size
@@ -58,18 +61,7 @@ const ProductPage = () => {
       setShowNotification(true);
     } else {
       console.log("not here");
-      const newCart = Cart.clothes;
-      newCart.push(productPageData);
-
-      setCart((prev) => {
-        return {
-          ...prev,
-          clothes: newCart,
-          total: newCart.reduce((prev, curr) => {
-            return prev + curr.price * curr.Quantity;
-          }, 0),
-        };
-      });
+    dispatch(Appbtns.addToCart({...productPageData}))
       setNotificationData({
         text1: "You have added ",
         text2: productPageData.title,

@@ -2,54 +2,13 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Context";
 import "./index.css";
-
+import { useDispatch } from "react-redux";
+import * as appbtns from "../AppFunction";
 const CartCard = (props) => {
-  const { Cart, setCart, setProductPageData } = useContext(AuthContext);
+  const dispatch = useDispatch();
 
-  const updateData = () => {
-    setCart((prev) => {
-      return {
-        ...prev,
-        clothes: prev.clothes,
-        total: prev.clothes.reduce((prev, curr) => {
-          return prev + curr.price * curr.Quantity;
-        }, 0),
-      };
-    });
-  };
-  const addProductQuantity = (props, event) => {
-    setCart((prev) => {
-      return {
-        ...prev,
-        clothes: prev.clothes.map((data) => {
-          return data.title === props.title&&data.size===props.size
-            ? { ...data, Quantity: event.target.value }
-            : data;
-        }),
-        total: prev.clothes.reduce((prev, curr) => {
-          return prev + curr.price * curr.Quantity;
-        }, 0),
-      };
-    });
-    updateData();
-    console.log(Cart);
-  };
-  const removeFromCart = (data) => {
-    console.log(data.title);
-    const filtered = Cart.clothes.filter(
-      (data) => data.title !== props.title || data.size !== props.size
-    );
-    console.log(filtered);
-    setCart((prev) => {
-      return {
-        ...prev,
-        clothes: filtered,
-        total: filtered.reduce((prev, curr) => {
-          return prev + curr.price * curr.Quantity;
-        }, 0),
-      };
-    });
-  };
+  const {  setProductPageData } = useContext(AuthContext);
+
 
   return (
     <div>
@@ -75,7 +34,7 @@ const CartCard = (props) => {
               <select
                 value={props.Quantity}
                 name="qty"
-                onChange={() => addProductQuantity({...props}, event)}
+                onChange={(event) => dispatch(appbtns.addQty(props))}
               >
                 <option value={1}>1</option>
                 <option value={2}>2</option>
@@ -93,7 +52,7 @@ const CartCard = (props) => {
             viewBox="0 0 24 24"
             width="16"
             height="16"
-            onClick={() => removeFromCart(props.title)}
+            onClick={() => dispatch(appbtns.removeFromCart(props))}
           >
             <path d="M5.72 5.72a.75.75 0 0 1 1.06 0L12 10.94l5.22-5.22a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L13.06 12l5.22 5.22a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L12 13.06l-5.22 5.22a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L10.94 12 5.72 6.78a.75.75 0 0 1 0-1.06Z"></path>
           </svg>
@@ -117,7 +76,7 @@ const CartCard = (props) => {
               viewBox="0 0 24 24"
               width="16"
               height="16"
-              onClick={() => removeFromCart({ ...props })}
+              onClick={() => dispatch(appbtns.removeFromCart(props))}
             >
               <path d="M5.72 5.72a.75.75 0 0 1 1.06 0L12 10.94l5.22-5.22a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L13.06 12l5.22 5.22a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L12 13.06l-5.22 5.22a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L10.94 12 5.72 6.78a.75.75 0 0 1 0-1.06Z"></path>
             </svg>
@@ -130,7 +89,7 @@ const CartCard = (props) => {
               <select
                 value={props.Quantity}
                 name="qty"
-                onChange={() => addProductQuantity({...props}, event)}
+                onChange={(event) => dispatch(appbtns.addQty(props))}
               >
                 <option value={1}>1</option>
                 <option value={2}>2</option>

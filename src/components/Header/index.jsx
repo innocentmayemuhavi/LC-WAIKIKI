@@ -4,9 +4,11 @@ import { PhoneNavigation } from "../Navigation";
 import { AuthContext } from "../Context";
 import { Link } from "react-router-dom";
 import { DeskTopNav } from "../Navigation/DeskTopNavigation";
+import { useSelector } from "react-redux";
 
 const Header = () => {
-  const { showPhoneNav, setShowPhoneNav, Cart,dataStore } = useContext(AuthContext);
+  const dataStored = useSelector((state) => state.cart);
+  const { showPhoneNav, setShowPhoneNav } = useContext(AuthContext);
   const [width, setwidth] = useState(window.innerWidth);
   useEffect(() => {
     function watchwidth() {
@@ -25,7 +27,6 @@ const Header = () => {
   const windowwidth = window.innerWidth;
   return (
     <header>
-   
       <section
         style={{
           position: windowwidth > 1000 ? "static" : "fixed",
@@ -49,12 +50,15 @@ const Header = () => {
           </Link>
         </div>
         <div className="cart-icon">
-          {dataStore[0].length > 0 && (
+          {dataStored.clothes.length > 0 && (
             <div className="cart-items-count">
-              <p>{dataStore[0].length}</p>
+              <p>{dataStored.clothes.length}</p>
             </div>
           )}
-         <Link to={'/cart'}> <img src="../../../../images/icons/shopping-cart.png"></img></Link>
+          <Link to={"/cart"}>
+            {" "}
+            <img src="../../../../images/icons/shopping-cart.png"></img>
+          </Link>
         </div>
       </section>
       {windowwidth > 1000 && <DeskTopNav />}

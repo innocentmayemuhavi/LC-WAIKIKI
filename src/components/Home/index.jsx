@@ -1,12 +1,8 @@
 import "./index.css";
 import Header from "../Header/index.jsx";
 import Footer from "../Footer";
-import { useContext } from "react";
-import { AuthContext } from "../Context";
 import { Link } from "react-router-dom";
-
 const HomePage = () => {
-  const { Cart } = useContext(AuthContext);
   return (
     <main className="fade">
       <Header />
@@ -58,5 +54,4 @@ const HomePage = () => {
     </main>
   );
 };
-
 export default HomePage;

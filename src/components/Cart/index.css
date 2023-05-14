@@ -62,6 +62,7 @@
   }
   .cart-body {
     padding: 4px 10px;
+    margin-bottom:5px;
   }
   .cart-total {
     padding: 2px 10px;
@@ -75,6 +76,9 @@
   }
   .checkout {
     display: block;
+  }
+  .cart-total{
+    margin-bottom: 60px;
   }
   
 }

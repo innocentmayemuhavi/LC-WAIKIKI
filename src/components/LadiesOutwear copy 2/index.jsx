@@ -7,7 +7,6 @@ const LadiesOutwear = () => {
   const filtered = ProductData.filter(
     (data) => data.category === "ladies-outerwear"
   );
-
   const render = filtered.map((data) => (
     <ProductCard key={data.name} {...data} />
   ));
@@ -27,5 +26,4 @@ const LadiesOutwear = () => {
     </main>
   );
 };
-
 export default LadiesOutwear;
