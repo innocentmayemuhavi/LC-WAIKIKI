@@ -7,8 +7,7 @@ import * as appbtns from "../AppFunction";
 const CartCard = (props) => {
   const dispatch = useDispatch();
 
-  const {  setProductPageData } = useContext(AuthContext);
-
+  const { setProductPageData } = useContext(AuthContext);
 
   return (
     <div>
@@ -89,7 +88,14 @@ const CartCard = (props) => {
               <select
                 value={props.Quantity}
                 name="qty"
-                onChange={(event) => dispatch(appbtns.addQty(props))}
+                onChange={(event) =>
+                  dispatch(
+                    appbtns.addQty({
+                      item: props,
+                      value: parseInt(event.target.value),
+                    })
+                  )
+                }
               >
                 <option value={1}>1</option>
                 <option value={2}>2</option>
